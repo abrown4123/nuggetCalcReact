@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import InputBar from './components/input_bar';
 
-const title = "React, Babel, webpack Template";
+const title = "Nugget Calculator";
+
+class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      nuggets: 0
+    };
+  }
+
+  render() {
+    return <InputBar />;
+  }
+}
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <App />,
   document.getElementById('app')
 );
