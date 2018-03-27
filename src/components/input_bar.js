@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 class InputBar extends Component {
-
   constructor(props) {
     super(props);
 
@@ -13,12 +12,19 @@ class InputBar extends Component {
       <div className='input-bar'>
         <label htmlFor = 'money'>$</label>
         <input
-          value = {this.state.term}
+          value = {this.state.money}
           type = 'number'
+          onChange = {event => this.setState({money: event.target.value})}
           />
-        <button>Submit</button>
+        <button onClick = {this.onSubmit}>Submit</button>
       </div>
     );
+  }
+
+  onSubmit=() => {
+    console.log(this.state.money);
+    const nuggets = this.state.money*4;
+    this.props.onMoneyInput(nuggets);
   }
 }
 

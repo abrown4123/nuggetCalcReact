@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import InputBar from './components/input_bar';
+import NuggetList from './components/nuggets'
 
 const title = "Nugget Calculator";
 
@@ -13,8 +14,19 @@ class App extends Component {
     };
   }
 
+  nuggetCalc(nuggets){
+    this.setState({
+      nuggets: nuggets
+    });
+  }
+
   render() {
-    return <InputBar />;
+    return (
+      <div>
+        <InputBar onMoneyInput={(nuggets) => this.nuggetCalc(nuggets)} />
+        <NuggetList nuggets={this.state.nuggets} />
+      </div>
+    );
   }
 }
 
