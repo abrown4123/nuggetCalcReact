@@ -23,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1>{title}</h1>
         <InputBar onMoneyInput={(nuggets) => this.nuggetCalc(nuggets)} />
         <NuggetList nuggets={this.state.nuggets} />
       </div>
@@ -30,7 +31,4 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));

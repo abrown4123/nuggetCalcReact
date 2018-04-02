@@ -14,17 +14,26 @@ class InputBar extends Component {
         <input
           value = {this.state.money}
           type = 'number'
+          min = '0'
           onChange = {event => this.setState({money: event.target.value})}
           />
         <button onClick = {this.onSubmit}>Submit</button>
+        <h3 className='numberOfNugs'></h3>
       </div>
     );
   }
 
   onSubmit=() => {
-    console.log(this.state.money);
+    let nuggetNumber = document.querySelector('.numberOfNugs');
     const nuggets = this.state.money*4;
+
     this.props.onMoneyInput(nuggets);
+
+    if (nuggets > -1){
+      nuggetNumber.innerHTML = 'You can buy ' + nuggets + ' nuggets.';
+    } else{
+      nuggetNumber.innerHTML = 'Please enter a valid number.';
+    }
   }
 }
 
