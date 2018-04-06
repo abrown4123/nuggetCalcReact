@@ -25,8 +25,8 @@ class InputBar extends Component {
 
   onSubmit=() => {
     let nuggetNumber = document.querySelector('.numberOfNugs');
-    const nuggets = this.state.money*4;
-
+    document.getElementById('app').style.display = 'block';
+    const nuggets = Math.floor(this.state.money*4);
     this.props.onMoneyInput(nuggets);
 
     if (nuggets > -1){
