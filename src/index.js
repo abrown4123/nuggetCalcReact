@@ -14,17 +14,11 @@ class App extends Component {
     };
   }
 
-  nuggetCalc(nuggets){
-    this.setState({
-      nuggets: nuggets
-    });
-  }
-
   render() {
     return (
       <div>
         <h1>{title}</h1>
-        <InputBar onMoneyInput={(nuggets) => this.nuggetCalc(nuggets)} />
+        <InputBar onMoneyInput={(nuggets) => this.setState({nuggets})} />
         <NuggetList nuggets={this.state.nuggets} />
       </div>
     );
